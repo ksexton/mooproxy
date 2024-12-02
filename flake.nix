@@ -40,7 +40,8 @@
       default = pkgs.stdenv.mkDerivation {
         name = "mooproxy";
         src = ./.;
-        buildInputs = with pkgs; [gcc libxcrypt];
+        # buildInputs = with pkgs; [gcc openssl libxcrypt-legacy git-crypt gnumake pkg-config];
+        buildInputs = with pkgs; [gcc libxcrypt-legacy];
         buildPhase = ''
           # gcc mooproxy.o misc.o config.o daemon.o world.o network.o command.o mcp.o log.o accessor.o timer.o resolve.o crypt.o line.o panic.o recall.o -Wall -lcrypt -o mooproxy 
           # gcc mooproxy.c -Wall -lcrypt -o mooproxy 
